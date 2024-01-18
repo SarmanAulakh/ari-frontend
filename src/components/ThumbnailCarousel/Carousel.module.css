@@ -1,0 +1,21 @@
+.carousel :global(.carousel-status) {
+  display: none;
+}
+.carousel :global(.thumbs-wrapper) {
+  margin: 0;
+}
+
+.carousel :global(.thumbs-wrapper ul) {
+  padding: 0;
+}
+
+.carousel :global(li.thumb)
+{
+  border: 1px solid black;
+  height: 50px;
+}
+
+.carousel :global(li.thumb img)
+{
+  height: 50px;
+}
