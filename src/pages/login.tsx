@@ -15,7 +15,7 @@ import { useWeb3Auth } from 'src/services/auth';
 import Head from 'src/components/Head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { Button } from '@icari-io/ui-components';
+import { Button } from '@ari/ui-components';
 import apiClient from 'src/util/apiClient';
 import LoadingButton from '@mui/lab/LoadingButton';
 
@@ -38,7 +38,7 @@ export default function SignInSide() {
 
     setSubmittedEmail(email);
 
-    const userDetails = await apiClient.get(`/user/email/${email}`).catch(e => {
+    const userDetails = await apiClient.get(`/user/email/${email}`).catch((e) => {
       setBetaDialogOpen(true);
     });
 
@@ -47,19 +47,19 @@ export default function SignInSide() {
       return;
     }
 
-    login(WALLET_ADAPTERS.OPENLOGIN, 'email_passwordless', email).then((walletAddress:string) => {
-      apiClient.post('/user/login', {email, walletAddress});
+    login(WALLET_ADAPTERS.OPENLOGIN, 'email_passwordless', email).then((walletAddress: string) => {
+      apiClient.post('/user/login', { email, walletAddress });
     });
   };
 
   const handleApplyBeta = async () => {
     setBetaApplyLoading(true);
-    const res = await apiClient.post('/user/apply-beta', {email: submittedEmail});
+    const res = await apiClient.post('/user/apply-beta', { email: submittedEmail });
     if (res) {
       setBetaApplyLoading(false);
       setBetaApplySuccess(true);
     }
-  }
+  };
 
   const redirect = () => {
     router.push('/');
@@ -74,14 +74,18 @@ export default function SignInSide() {
 
   return (
     <>
-      <Head title="Login | icari" description="Login page" />
-      <Grid container component="main" sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100%'
-      }}>
+      <Head title="Login | ari" description="Login page" />
+      <Grid
+        container
+        component="main"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100%',
+        }}
+      >
         <CssBaseline />
         <Grid
           item
@@ -106,7 +110,7 @@ export default function SignInSide() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                minWidth: '350px'
+                minWidth: '350px',
               }}
             >
               <Typography
@@ -114,7 +118,8 @@ export default function SignInSide() {
                   marginTop: '20px',
                   fontWeight: 'bold',
                   fontSize: 32,
-                }}>
+                }}
+              >
                 Log In
               </Typography>
               {isLoading ? (
@@ -147,48 +152,48 @@ export default function SignInSide() {
         </Grid>
       </Grid>
       <Dialog
-        sx={{padding: 4}}
+        sx={{ padding: 4 }}
         open={betaDialogOpen}
         onClose={handleBetaDialogClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description">
+        aria-describedby="modal-modal-description"
+      >
         <DialogTitle>
           <Typography variant="h4" component="h4">
             Hi! We&apos;re in closed beta.
           </Typography>
         </DialogTitle>
         <DialogContent>
-          { !betaApplySuccess &&
-          <React.Fragment>
-            <Typography sx={{ mt: 2 }}>
-              Thanks for checking us out. We are currently in a limited closed beta.
-              If you would like to participate please click &quot;Apply for closed beta&quot; below.
-              You will receive an email if you are accepted into our closed beta.
-              If you are not accepted, we will still notify you when we enter open beta.
-            </Typography>
-            <LoadingButton
-              loading={betaApplyLoading}
-              onClick={handleApplyBeta}
-              disabled={!isValidEmail}
-              sx={{
-                marginTop: '20px',
-                fontWeight: 'bold',
-                color: 'white',
-                width: '100%',
-                background: '-webkit-linear-gradient(right, #259DFE, #8C49FB)'
-              }}
-            >
-              Apply for closed beta
-            </LoadingButton>
-          </React.Fragment>
-          }
-          { betaApplySuccess &&
-          <React.Fragment>
-            <Typography sx={{ mt: 2 }}>
-              Thanks for applying to our closed beta! You&apos;ll hear from us soon.
-            </Typography>
-          </React.Fragment>
-          }
+          {!betaApplySuccess && (
+            <React.Fragment>
+              <Typography sx={{ mt: 2 }}>
+                Thanks for checking us out. We are currently in a limited closed beta. If you would like to participate
+                please click &quot;Apply for closed beta&quot; below. You will receive an email if you are accepted into
+                our closed beta. If you are not accepted, we will still notify you when we enter open beta.
+              </Typography>
+              <LoadingButton
+                loading={betaApplyLoading}
+                onClick={handleApplyBeta}
+                disabled={!isValidEmail}
+                sx={{
+                  marginTop: '20px',
+                  fontWeight: 'bold',
+                  color: 'white',
+                  width: '100%',
+                  background: '-webkit-linear-gradient(right, #259DFE, #8C49FB)',
+                }}
+              >
+                Apply for closed beta
+              </LoadingButton>
+            </React.Fragment>
+          )}
+          {betaApplySuccess && (
+            <React.Fragment>
+              <Typography sx={{ mt: 2 }}>
+                Thanks for applying to our closed beta! You&apos;ll hear from us soon.
+              </Typography>
+            </React.Fragment>
+          )}
         </DialogContent>
       </Dialog>
     </>

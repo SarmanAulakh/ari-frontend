@@ -6,7 +6,7 @@ import { NAVBAR_SIZE } from 'src/styles/size';
 import { Avatar, Box, Container, Stack, Typography, Grid } from '@mui/material';
 import { useState, useEffect } from 'react';
 
-import { shortenAddress, Tab, Tabs, Tag, TabPanel, Loader } from '@icari-io/ui-components';
+import { shortenAddress, Tab, Tabs, Tag, TabPanel, Loader } from '@ari/ui-components';
 
 import EthImage from 'src/assets/icons/currency/eth.svg';
 import UserGameCard from 'src/components/Cards/UserGameCard';
@@ -17,7 +17,7 @@ import { ipfsRawToGatewayUrl } from 'src/util/web3';
 
 const staticData = {
   bannerImage: {
-    src: 'https://storage.googleapis.com/icari-game-images/banners/antman/large.webp',
+    src: 'https://storage.googleapis.com/ari-game-images/banners/antman/large.webp',
     alt: 'TODO',
   },
   lastPlayed: 'Coming Soon ...',
@@ -35,7 +35,7 @@ const Account: NextPage = () => {
 
   useEffect(() => {
     const updateUserNfts = async () => {
-      const res = await getNFTs(user || "");
+      const res = await getNFTs(user || '');
       setUserNfts(res);
     };
 
@@ -68,7 +68,7 @@ const Account: NextPage = () => {
         }}
       />
       <Container maxWidth="xl">
-        <Head title="Account | icari" description="Account page" />
+        <Head title="Account | ari" description="Account page" />
 
         <div id="blue-ellipse" />
         <div id="purple-ellipse" />
@@ -104,16 +104,17 @@ const Account: NextPage = () => {
                   </Box>
                   <TabPanel index={0} value={value} style={{ width: '100%' }}>
                     <Grid container spacing={2}>
-                      {userNfts.length !== 0 && userNfts.map(({ metadata}: any) => (
-                        <Grid item lg={3} md={4} sm={6} xs={12} key={metadata.gameId}>
-                          <UserGameCard
-                            id={metadata.gameId}
-                            name={metadata.name}
-                            image={ipfsRawToGatewayUrl(metadata.image)}
-                            imageAlt="TODO"
-                          />
-                        </Grid>
-                      ))}
+                      {userNfts.length !== 0 &&
+                        userNfts.map(({ metadata }: any) => (
+                          <Grid item lg={3} md={4} sm={6} xs={12} key={metadata.gameId}>
+                            <UserGameCard
+                              id={metadata.gameId}
+                              name={metadata.name}
+                              image={ipfsRawToGatewayUrl(metadata.image)}
+                              imageAlt="TODO"
+                            />
+                          </Grid>
+                        ))}
                     </Grid>
                   </TabPanel>
                 </Stack>

@@ -1,13 +1,9 @@
-import React, { FormEvent, useEffect, useState } from "react";
-import {
-  PaymentElement,
-  useStripe,
-  useElements
-} from "@stripe/react-stripe-js";
+import React, { FormEvent, useEffect, useState } from 'react';
+import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-import { Button } from '@icari-io/ui-components'
-import { useWeb3Auth } from "src/services/auth";
-import apiClient from "src/util/apiClient";
+import { Button } from '@ari/ui-components';
+import { useWeb3Auth } from 'src/services/auth';
+import apiClient from 'src/util/apiClient';
 
 interface Props {
   walletAddress: string;
@@ -26,9 +22,7 @@ export default function CheckoutForm({ walletAddress, gameId }: Props) {
       return;
     }
 
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
+    const clientSecret = new URLSearchParams(window.location.search).get('payment_intent_client_secret');
 
     if (!clientSecret) {
       return;
@@ -36,28 +30,28 @@ export default function CheckoutForm({ walletAddress, gameId }: Props) {
 
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       if (!paymentIntent) {
-        setMessage("Something went wrong.");
+        setMessage('Something went wrong.');
         return;
       }
 
       switch (paymentIntent.status) {
-        case "succeeded":
-          setMessage("Payment succeeded!");
+        case 'succeeded':
+          setMessage('Payment succeeded!');
           break;
-        case "processing":
-          setMessage("Your payment is processing.");
+        case 'processing':
+          setMessage('Your payment is processing.');
           break;
-        case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
+        case 'requires_payment_method':
+          setMessage('Your payment was not successful, please try again.');
           break;
         default:
-          setMessage("Something went wrong.");
+          setMessage('Something went wrong.');
           break;
       }
     });
   }, [stripe]);
 
-  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!stripe || !elements) {
@@ -83,10 +77,10 @@ export default function CheckoutForm({ walletAddress, gameId }: Props) {
     // your `return_url`. For some payment methods like iDEAL, your customer will
     // be redirected to an intermediate site first to authorize the payment, then
     // redirected to the `return_url`.
-    if (error.type === "card_error" || error.type === "validation_error") {
+    if (error.type === 'card_error' || error.type === 'validation_error') {
       setMessage(error.message as string);
     } else {
-      setMessage("An unexpected error occurred.");
+      setMessage('An unexpected error occurred.');
     }
 
     setIsLoading(false);
@@ -95,16 +89,18 @@ export default function CheckoutForm({ walletAddress, gameId }: Props) {
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
-      <Button disabled={isLoading || !stripe || !elements} id="submit" type="submit"
+      <Button
+        disabled={isLoading || !stripe || !elements}
+        id="submit"
+        type="submit"
         colorType="gradient"
         sx={{
           fontWeight: 'bold',
           color: 'white',
           fontSize: '16px',
-        }}>
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
+        }}
+      >
+        <span id="button-text">{isLoading ? <div className="spinner" id="spinner"></div> : 'Pay now'}</span>
       </Button>
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}

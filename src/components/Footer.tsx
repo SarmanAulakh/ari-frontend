@@ -5,7 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Button } from '@icari-io/ui-components';
+import { Button } from '@ari/ui-components';
 
 export default function Footer() {
   const [tosDialogOpen, setTosDialogOpen] = React.useState(false);
@@ -26,36 +26,30 @@ export default function Footer() {
         aria-describedby="scroll-dialog-description"
       >
         <DialogTitle id="scroll-dialog-title">Terms of Service</DialogTitle>
-        <DialogContent dividers>
-
-        </DialogContent>
+        <DialogContent dividers></DialogContent>
         <DialogActions>
-          <Button onClick={() => setTosDialogOpen(false)}
-              sx={{
-                color: 'white',
-                background: '-webkit-linear-gradient(right, #259DFE, #8C49FB)'
-              }}>
+          <Button
+            onClick={() => setTosDialogOpen(false)}
+            sx={{
+              color: 'white',
+              background: '-webkit-linear-gradient(right, #259DFE, #8C49FB)',
+            }}
+          >
             Close
           </Button>
         </DialogActions>
       </Dialog>
       <Grid container spacing={2} alignItems="center" justifyContent="space-around">
-        <Grid item>
-          © {new Date().getFullYear()} icari. All rights reserved.
-        </Grid>
+        <Grid item>© {new Date().getFullYear()} ari. All rights reserved.</Grid>
         <Grid item container spacing={2} alignItems="center" justifyContent="center">
           <Grid item>
             <Link href="/about" passHref>
-              <MuiLink underline="none">
-                About Us
-              </MuiLink>
+              <MuiLink underline="none">About Us</MuiLink>
             </Link>
           </Grid>
           <Grid item>
             <Link href="https://discord.gg/K74hGhuK7J" target="_blank" passHref>
-              <MuiLink underline="none">
-                Our Discord
-              </MuiLink>
+              <MuiLink underline="none">Our Discord</MuiLink>
             </Link>
           </Grid>
           <Grid item>

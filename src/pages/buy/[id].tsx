@@ -87,12 +87,12 @@ export default function GameBuyPage({ gameData }: InferGetServerSidePropsType<ty
         minHeight: '100vh',
       }}
     >
-      <Head title="Buy | icari" description="Checkout page" />
+      <Head title="Buy | ari" description="Checkout page" />
 
       <main>
         <Image src={gameData?.coverImage} width={400} height={200} alt="" />
         <Typography fontSize={34} fontWeight="bold" mb={1}>
-          Buy {' '}
+          Buy{' '}
           <Typography fontSize={34} fontWeight="bold" display="inline" color="GrayText">
             {gameData?.displayName}
           </Typography>

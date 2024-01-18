@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.7",
-    "@icari-io/ui-components": "^0.2.0",
+    "@ari/ui-components": "^0.2.0",
     "@mui/lab": "^5.0.0-alpha.89",
     "@mui/material": "^5.8.4",
     "@next/bundle-analyzer": "^12.3.1",

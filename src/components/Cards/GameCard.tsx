@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Tag } from '@icari-io/ui-components';
+import { Tag } from '@ari/ui-components';
 import { Typography, Stack, CardContent, Card, useTheme } from '@mui/material';
 import { FaWindows, FaApple } from 'react-icons/fa';
 import { PaymentType } from 'types/game';

@@ -5,7 +5,7 @@ import Head from 'src/components/Head';
 const ErrorPage404: NextPage = () => {
   return (
     <Container maxWidth="xl">
-      <Head title="404 | icari" description="Page not found" />
+      <Head title="404 | ari" description="Page not found" />
 
       <div id="blue-ellipse" />
 
