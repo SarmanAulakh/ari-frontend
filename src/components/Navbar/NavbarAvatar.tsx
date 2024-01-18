@@ -22,7 +22,7 @@ import { AiOutlineLogout, AiOutlineUser, AiOutlineSetting } from 'react-icons/ai
 import { useWeb3Auth } from 'src/services/auth';
 import ProfileTab from './ProfileTab';
 import SettingTab from './SettingTab';
-import { Colors, Transitions } from '@icari-io/ui-components';
+import { Colors, Transitions } from '@ari/ui-components';
 
 const AVATAR_WIDTH = 42;
 const AVATAR_HEIGHT = 42;

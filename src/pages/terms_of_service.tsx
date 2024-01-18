@@ -8,7 +8,6 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-
 const TermsOfService: NextPage = () => {
   const [numPages, setNumPages] = useState<number | undefined>(undefined);
 
@@ -18,7 +17,7 @@ const TermsOfService: NextPage = () => {
 
   return (
     <Container maxWidth="xl">
-      <Head title="Terms of Service | icari" description="Terms of service" />
+      <Head title="Terms of Service | ari" description="Terms of service" />
 
       <div id="blue-ellipse" />
 
@@ -27,14 +26,13 @@ const TermsOfService: NextPage = () => {
           <Document file="/Terms-Of-Use-2022_22_12.pdf" onLoadSuccess={onDocumentLoadSuccess}>
             {Array.from(new Array(numPages), (el, index) => (
               <>
-                <Page key={`page_${index + 1}`} pageNumber={index + 1} scale={1.5}/>
+                <Page key={`page_${index + 1}`} pageNumber={index + 1} scale={1.5} />
                 <Divider />
               </>
             ))}
           </Document>
         </Box>
       </main>
-
     </Container>
   );
 };

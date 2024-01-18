@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Typography, Stack, CardContent, Card } from '@mui/material';
-import { shortenAddress } from '@icari-io/ui-components';
+import { shortenAddress } from '@ari/ui-components';
 
 interface GameCardProps {
   id: string | number;
@@ -27,7 +27,8 @@ function UserGameCard({ id, name, image, imageAlt }: GameCardProps) {
                 fontSize: '20px',
                 fontWeight: '600',
                 textTransform: 'none',
-              }}>
+              }}
+            >
               {name}
             </Typography>
           </a>

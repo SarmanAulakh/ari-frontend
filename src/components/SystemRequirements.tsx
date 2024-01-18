@@ -1,5 +1,5 @@
 import { Grid, Paper, Typography, useTheme } from '@mui/material';
-import { Tab, Tabs, TabPanel } from '@icari-io/ui-components';
+import { Tab, Tabs, TabPanel } from '@ari/ui-components';
 import React, { useState } from 'react';
 
 interface Requirements {

@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Box, CssBaseline, Toolbar } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import AuthProvider from 'src/services/auth';
-import { themes, Loader } from '@icari-io/ui-components';
+import { themes, Loader } from '@ari/ui-components';
 
 import Navbar from 'src/components/Navbar/Navbar';
 import usePageLoading from 'src/util/usePageLoading';

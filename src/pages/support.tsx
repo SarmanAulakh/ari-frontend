@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { CircularProgress, Container, Grid, Stack, Typography } from '@mui/material';
 import Head from 'src/components/Head';
-import { Button, Colors } from '@icari-io/ui-components';
+import { Button, Colors } from '@ari/ui-components';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -69,7 +69,7 @@ const Support: NextPage = () => {
 
   return (
     <Container maxWidth="xl">
-      <Head title="Support | icari" description="Coming Soon!" />
+      <Head title="Support | ari" description="Coming Soon!" />
 
       <div id="blue-ellipse" />
       <div id="purple-ellipse" />

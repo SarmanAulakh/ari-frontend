@@ -1,4 +1,4 @@
-import { Colors } from '@icari-io/ui-components';
+import { Colors } from '@ari/ui-components';
 
 interface Props {
   color?: string | any;
@@ -7,14 +7,18 @@ interface Props {
 
 export default function TextGradient({ color = Colors.PRIMARY_GRADIENT, children }: Props) {
   return (
-    <span style={{
-      background: color,
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      MozBackgroundClip: 'text',
-      MozTextFillColor: 'transparent',
-    } as any}>
-      { children }
+    <span
+      style={
+        {
+          background: color,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          MozBackgroundClip: 'text',
+          MozTextFillColor: 'transparent',
+        } as any
+      }
+    >
+      {children}
     </span>
-  )
+  );
 }

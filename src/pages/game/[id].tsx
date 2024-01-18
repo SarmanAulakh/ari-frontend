@@ -1,4 +1,4 @@
-import { Button, Tag } from '@icari-io/ui-components';
+import { Button, Tag } from '@ari/ui-components';
 import { Box, Breadcrumbs, Container, Divider, Typography, Link as MuiLink, Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ThumbnailCarousel from 'src/components/ThumbnailCarousel/ThumbnailCarousel';
@@ -35,7 +35,7 @@ export default function GameDetailsPage({ gameData }: InferGetServerSidePropsTyp
 
   return (
     <Container maxWidth="xl" sx={{ padding: { xs: 0, sm: 2 } }}>
-      <Head title={`${gameData.displayName} | icari`} description={gameData.description} />
+      <Head title={`${gameData.displayName} | ari`} description={gameData.description} />
 
       <div id="blue-ellipse" />
       <div id="purple-ellipse" />

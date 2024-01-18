@@ -7,7 +7,7 @@ import apiClient from 'src/util/apiClient';
 
 import { Game, GenreList } from 'types/game';
 import { Genres } from 'constants/game';
-import { Dropdown } from '@icari-io/ui-components';
+import { Dropdown } from '@ari/ui-components';
 
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next/types';
 import Head from 'src/components/Head';
@@ -34,8 +34,8 @@ export default function Home({ games }: InferGetServerSidePropsType<typeof getSe
   return (
     <Container maxWidth="xl" sx={{ background: 'transparent', height: '100%' }}>
       <Head
-        title="Store | icari"
-        description="icari is the ultimate platform to truly own, collect, and trade your digital games."
+        title="Store | ari"
+        description="ari is the ultimate platform to truly own, collect, and trade your digital games."
       />
 
       <div id="blue-ellipse" />
@@ -108,4 +108,4 @@ export default function Home({ games }: InferGetServerSidePropsType<typeof getSe
       </main>
     </Container>
   );
-};
+}

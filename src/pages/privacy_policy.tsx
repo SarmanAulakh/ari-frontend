@@ -17,7 +17,7 @@ const PrivacyPolicy: NextPage = () => {
 
   return (
     <Container maxWidth="xl">
-      <Head title="Privacy Policy | icari" description="Privacy policy" />
+      <Head title="Privacy Policy | ari" description="Privacy policy" />
 
       <div id="blue-ellipse" />
 
@@ -26,7 +26,7 @@ const PrivacyPolicy: NextPage = () => {
           <Document file="/Privacy-Policy-2022_22_12.pdf" onLoadSuccess={onDocumentLoadSuccess}>
             {Array.from(new Array(numPages), (el, index) => (
               <>
-                <Page key={`page_${index + 1}`} pageNumber={index + 1} scale={1.5}/>
+                <Page key={`page_${index + 1}`} pageNumber={index + 1} scale={1.5} />
                 <Divider />
               </>
             ))}

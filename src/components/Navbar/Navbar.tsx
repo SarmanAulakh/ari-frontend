@@ -1,10 +1,23 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Button } from '@icari-io/ui-components';
-import { AppBar, Box, Container, Stack, Toolbar, useMediaQuery, useTheme, Link as MuiLink, styled, Typography, Alert, AlertTitle } from '@mui/material';
+import { Button } from '@ari/ui-components';
+import {
+  AppBar,
+  Box,
+  Container,
+  Stack,
+  Toolbar,
+  useMediaQuery,
+  useTheme,
+  Link as MuiLink,
+  styled,
+  Typography,
+  Alert,
+  AlertTitle,
+} from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import icariLogo from 'src/assets/images/icari-logo-white-full.png';
+import ariLogo from 'src/assets/images/ari-logo-white-full.png';
 import Image from 'next/image';
 import { useWeb3Auth } from 'src/services/auth';
 import React from 'react';
@@ -13,7 +26,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 
 const NavbarLink = styled(MuiLink)({
   fontWeight: 500,
-  fontSize: 18
+  fontSize: 18,
 });
 
 interface Props {
@@ -76,25 +89,23 @@ export default function Navbar({ changeTheme }: any) {
           <Toolbar disableGutters>
             <Stack direction="row" justifyContent="space-between" alignItems="center" width="100%">
               <Stack direction="row" spacing={4} alignItems="center">
-                <Image src={icariLogo} alt="icari logo" width={170} height={60} />
+                <Image src={ariLogo} alt="ari logo" width={170} height={60} />
                 <Link href="/" passHref>
-                  <NavbarLink underline="none">
-                    Store
-                  </NavbarLink>
+                  <NavbarLink underline="none">Store</NavbarLink>
                 </Link>
                 <Link href="/support" passHref>
-                  <NavbarLink underline="none">
-                    Support
-                  </NavbarLink>
+                  <NavbarLink underline="none">Support</NavbarLink>
                 </Link>
                 <Link href="/about" passHref>
-                  <NavbarLink underline="none">
-                    About
-                  </NavbarLink>
+                  <NavbarLink underline="none">About</NavbarLink>
                 </Link>
                 <Box display={matchDownMD ? 'none' : 'block'}>
-                  <Button colorType="gradient" textColor="white" href='https://storage.googleapis.com/icari-misc/icari-launcher-win32-x64.zip'>
-                    Download icari client
+                  <Button
+                    colorType="gradient"
+                    textColor="white"
+                    href="https://storage.googleapis.com/ari-misc/ari-launcher-win32-x64.zip"
+                  >
+                    Download ari client
                   </Button>
                 </Box>
               </Stack>
@@ -107,7 +118,7 @@ export default function Navbar({ changeTheme }: any) {
                       fontWeight: 'bold',
                       color: 'white',
                       width: '100px',
-                      background: '-webkit-linear-gradient(right, #259DFE, #8C49FB)'
+                      background: '-webkit-linear-gradient(right, #259DFE, #8C49FB)',
                     }}
                   >
                     Log In
@@ -120,8 +131,11 @@ export default function Navbar({ changeTheme }: any) {
           </Toolbar>
         </Container>
         <Alert variant="filled" severity="info" sx={{ mt: 1 }}>
-          Hi! This is a closed beta, and are not offering refunds on purchases (for now).
-          Please read our <Link href="/refund_policy"><MuiLink sx={{cursor:"pointer"}}>refund policy</MuiLink></Link> for more information.
+          Hi! This is a closed beta, and are not offering refunds on purchases (for now). Please read our{' '}
+          <Link href="/refund_policy">
+            <MuiLink sx={{ cursor: 'pointer' }}>refund policy</MuiLink>
+          </Link>{' '}
+          for more information.
         </Alert>
       </AppBar>
     </ElevationScroll>
